@@ -19,7 +19,7 @@ jobs:
     - name: Workstation Setup
       run: |
         sudo mkdir -p ~/.chef
-        tee cat ~/.chef/credentials > /dev/null <<EOT
+        sudo tee cat ~/.chef/credentials > /dev/null <<EOT
         [default]
         client_name     = 'chefadmin'
         client_key      = '/Users/anksoni/.chef/chefadmin.pem'
