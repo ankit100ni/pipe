@@ -13,6 +13,9 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Setup Workstation
-      run: echo 'hello world'
+    - name: Installing Workstation
+      run: wget https://packages.chef.io/files/stable/chef-workstation/23.12.1055/ubuntu/22.04/chef-workstation_23.12.1055-1_amd64.deb; dpkg -i chef-workstation_23.12.1055-1_amd64.deb
+
+    - name: Workstation Setup
+      run: ls ; sudo cat credential > ~/.chef/credentials
       
