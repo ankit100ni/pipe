@@ -26,4 +26,10 @@ jobs:
         chef_server_url = 'https://@@@@server_fqdn@@@@/organizations/qa'
         EOT
         sudo cat ~/.chef/credentials
+        sudo cat "$CHEFADMIN_KEY" > ~/.chef/chefadmin.pem
+        sudo chmod 400 ~/.chefadmin.pem
+        sudo chown root:root ~/.chef/chefadmin.pem
+        sudo cat ~/.chef/CHEFADMIN_KEY
+      env:
+        CHEFADMIN_KEY: ${{ secrets.CHEFADMIN_KEY }}
       
