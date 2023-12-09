@@ -10,9 +10,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: justForTesting
+      run: ls; pwd; tee
+
     - name: Installing Workstation
       run: wget https://packages.chef.io/files/stable/chef-workstation/23.12.1055/ubuntu/22.04/chef-workstation_23.12.1055-1_amd64.deb; sudo dpkg -i chef-workstation_23.12.1055-1_amd64.deb
 
     - name: Workstation Setup
-      run: ls ; sudo cat credential > ~/.chef/credentials
+      run: |
+        sudo mkdir -p ~/.chef
+        tee cat ~/.chef/credentials > /dev/null <<EOT
+        [default]
+        client_name     = 'chefadmin'
+        client_key      = '/Users/anksoni/.chef/chefadmin.pem'
+        chef_server_url = 'https://@@@@server_fqdn@@@@/organizations/qa'
+        EOT
+        cat ~/.chef/credentials
       
