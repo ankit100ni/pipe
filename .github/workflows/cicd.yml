@@ -7,7 +7,7 @@ name: CI/CD Pipeline
 
 on:
   pull_request:
-    types: [opened, reopened]
+    types: [opened, edited]
     branches:
       - dev
 
@@ -32,5 +32,8 @@ jobs:
         chef_server_url = 'https://@@@@server_fqdn@@@@/organizations/qa'
         EOT
         sudo cat ~/.chef/credentials
-        sudo echo "${{ secrets.CHEFADMIN_KEY }}" > /tmp/chefadmin.pem
+        sudo ls -lahrt ~
+        sudo ls -lhrt ~/.chef/
+        sudo echo "${{ secrets.CHEFADMIN_KEY }}" > ~/.chef/chefadmin.pem
+        sudo cat /tmp/chefadmin.pem
 
