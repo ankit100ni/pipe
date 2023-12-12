@@ -36,5 +36,6 @@ jobs:
         sudo ls -lhrt ~/.chef
         sudo echo "${{ secrets.CHEFADMIN_KEY }}" > ~/.chef/chefadmin.pem
         sudo ls -lhrt ~/
+        sudo echo "Jai Mata di"
         sudo cat ~/.chef/chefadmin.pem
 
