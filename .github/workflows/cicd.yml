@@ -1,7 +1,13 @@
 name: CI/CD Pipeline
 
+# on:
+#   push:
+#     branches:
+#       - dev
+
 on:
-  push:
+  pull_request:
+    types: [opened, reopened]
     branches:
       - dev
 
