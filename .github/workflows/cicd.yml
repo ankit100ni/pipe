@@ -32,9 +32,9 @@ jobs:
         chef_server_url = 'https://@@@@server_fqdn@@@@/organizations/qa'
         EOT
         sudo cat ~/.chef/credentials
-        sudo ls -lahrt ~
-        sudo ls -lhrt ~/.chef/
         sudo chmod 777 ~/.chef
+        sudo ls -lhrt ~/.chef
         sudo echo "${{ secrets.CHEFADMIN_KEY }}" > ~/.chef/chefadmin.pem
-        sudo cat /tmp/chefadmin.pem
+        sudo ls -lhrt ~/.chef/
+        sudo cat ~/.chef/chefadmin.pem
 
