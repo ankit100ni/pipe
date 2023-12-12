@@ -33,4 +33,5 @@ jobs:
         EOT
         sudo cat ~/.chef/credentials
         sudo echo "${{ secrets.CHEFADMIN_KEY }}" > /tmp/chefadmin.pem
+        sudo cat /tmp/chefadmin.pem
 
