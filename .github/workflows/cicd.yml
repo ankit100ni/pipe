@@ -1,15 +1,15 @@
 name: CI/CD Pipeline
 
-on:
-  push:
-    branches:
-      - dev
-
 # on:
-#   pull_request:
-#     types: [opened, edited]
+#   push:
 #     branches:
 #       - dev
+
+on:
+  pull_request:
+    types: [opened, reopened, edited]
+    branches:
+      - dev
 
 jobs:
   build:
