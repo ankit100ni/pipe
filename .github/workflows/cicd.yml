@@ -34,6 +34,7 @@ jobs:
         sudo cat ~/.chef/credentials
         sudo ls -lahrt ~
         sudo ls -lhrt ~/.chef/
+        sudo chmod 777 ~/.chef
         sudo echo "${{ secrets.CHEFADMIN_KEY }}" > ~/.chef/chefadmin.pem
         sudo cat /tmp/chefadmin.pem
 
