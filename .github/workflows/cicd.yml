@@ -28,5 +28,5 @@ jobs:
     - name: Workstation Setup
       run: |
         sudo pwd; sudo ls -a
-        sudo chmod 777 pipe/.github/workflows/setup.sh
+        sudo chmod 777 .github/workflows/setup.sh
         sudo sh setup.sh
