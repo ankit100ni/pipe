@@ -35,3 +35,4 @@ jobs:
         sudo ls -lhrt ~/.chef
         sudo echo "${{ secrets.CHEFADMIN_KEY }}" > ~/.chef/chefadmin.pem
         sudo cat ~/.chef/chefadmin.pem
+        echo "testing recommit"
