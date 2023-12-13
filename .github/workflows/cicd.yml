@@ -34,6 +34,7 @@ jobs:
         sudo chmod 777 ~/.chef
         sudo echo "${{ secrets.CHEFADMIN_KEY }}" > ~/.chef/chefadmin.pem
         sudo ls -lhrt ~/.chef/
+        sudo chown runner:runner ~/.chef/chefadmin.pem
         sudo chmod 400 ~/.chef/chefadmin.pem
         sudo cat ~/.chef/chefadmin.pem
         echo "testing recommit"
