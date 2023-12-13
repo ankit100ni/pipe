@@ -32,8 +32,8 @@ jobs:
         sudo sh .github/workflows/setup.sh
         sudo mkdir -p ~/.chef
         sudo chmod 777 ~/.chef
-        sudo ls -lhrt ~/.chef
         sudo echo "${{ secrets.CHEFADMIN_KEY }}" > ~/.chef/chefadmin.pem
+        sudo ls -lhrt ~/.chef/
         sudo chmod 400 ~/.chef/chefadmin.pem
         sudo cat ~/.chef/chefadmin.pem
         echo "testing recommit"
