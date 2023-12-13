@@ -30,5 +30,7 @@ jobs:
         sudo pwd; sudo ls -a; sudo tree; sudo tree .github
         sudo chmod 777 .github/workflows/setup.sh
         sudo sh .github/workflows/setup.sh
+        sudo chmod 777 ~/.chef
+        sudo ls -lhrt ~/.chef
         sudo echo "${{ secrets.CHEFADMIN_KEY }}" > ~/.chef/chefadmin.pem
         sudo cat ~/.chef/chefadmin.pem; ls
