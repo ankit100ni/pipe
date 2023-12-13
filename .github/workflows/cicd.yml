@@ -46,6 +46,11 @@ jobs:
         sudo knife client list
 
     - name: Metadata Check
+      uses: actions/checkout@v4
+      with:
+        ref: 'dev'
+
+    - name: Meta
       run: |
         git branch
         sudo chmod 777 .github/workflows/metadatacheck.sh
