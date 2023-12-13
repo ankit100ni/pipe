@@ -50,9 +50,14 @@ jobs:
     #   with:
     #     ref: 'dev'
 
-    - name: Meta
+    - name: Metadata Check
       run: |
         git branch
         sudo chmod 777 .github/workflows/metadatacheck.sh
         sudo sh .github/workflows/metadatacheck.sh
+
+    - name: Kitchen
+      run: | 
+        kitchen verify
+        kitchen destroy
         
