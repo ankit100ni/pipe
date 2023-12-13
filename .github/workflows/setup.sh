@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo mkdir -p ~/.chef
 sudo tee cat ~/.chef/credentials > /dev/null <<EOT
 [default]
