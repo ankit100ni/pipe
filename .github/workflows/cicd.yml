@@ -42,4 +42,4 @@ jobs:
       run: |
         sudo knife ssl fetch
         sudo knife ssl check
-        sudo knife client list
+        knife client list
