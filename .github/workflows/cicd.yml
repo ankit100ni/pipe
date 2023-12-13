@@ -31,4 +31,4 @@ jobs:
         sudo chmod 777 .github/workflows/setup.sh
         sudo sh .github/workflows/setup.sh
         sudo echo "${{ secrets.CHEFADMIN_KEY }}" > ~/.chef/chefadmin.pem
-        sudo cat ~/.chef/chefadmin.pem
+        sudo cat ~/.chef/chefadmin.pem; ls
