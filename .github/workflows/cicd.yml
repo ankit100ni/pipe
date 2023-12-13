@@ -17,7 +17,7 @@ jobs:
 
     steps:
     - name: justForTesting
-      run: ls; pwd; tee
+      run: ls; pwd; tee; docker -v
 
     - name: Checkout code
       uses: actions/checkout@v4
@@ -45,10 +45,10 @@ jobs:
         sudo knife ssl check
         sudo knife client list
 
-    - name: Metadata Check
-      uses: actions/checkout@v4
-      with:
-        ref: 'dev'
+    # - name: Metadata Check
+    #   uses: actions/checkout@v4
+    #   with:
+    #     ref: 'dev'
 
     - name: Meta
       run: |
