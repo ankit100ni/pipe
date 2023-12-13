@@ -3,6 +3,7 @@ driver:
   name: dokken
 provisioner:
   name: dokken
+  chef_license: accept-no-persist
 transport:
   name: dokken
 verifier:
