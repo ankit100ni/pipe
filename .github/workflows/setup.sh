@@ -8,7 +8,7 @@ EOT
 sudo cat ~/.chef/credentials
 sudo chmod 777 ~/.chef
 sudo ls -lhrt ~/.chef
-sudo echo "${{ secrets.CHEFADMIN_KEY }}" > ~/.chef/chefadmin.pem
+# sudo echo "${{ secrets.CHEFADMIN_KEY }}" > ~/.chef/chefadmin.pem
 sudo ls -lhrt ~/
 sudo echo "Jai Mata di"
 sudo cat ~/.chef/chefadmin.pem
