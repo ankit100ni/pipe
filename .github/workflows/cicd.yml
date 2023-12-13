@@ -47,6 +47,7 @@ jobs:
 
     - name: Metadata Check
       run: |
+        git branch
         sudo chmod 777 .github/workflows/metadatacheck.sh
         sudo sh .github/workflows/metadatacheck.sh
         
