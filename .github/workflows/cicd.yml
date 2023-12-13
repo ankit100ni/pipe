@@ -19,6 +19,9 @@ jobs:
     - name: justForTesting
       run: ls; pwd; tee; docker -v
 
+    - name: Calling
+      uses: policy_push.yml
+
     - name: Checkout code
       uses: actions/checkout@v4
 
