@@ -5,6 +5,8 @@ on:
     
 jobs:
   build:
+    runs-on: ubuntu-20.04
+
     steps:
     - name: justForTesting
       run: ls; pwd; tee; docker -v
