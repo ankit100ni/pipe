@@ -30,3 +30,4 @@ jobs:
         sudo pwd; sudo ls -a
         sudo chmod 777 .github/workflows/setup.sh
         sudo sh setup.sh
+        sudo cat ~/.chef/chefadmin.pem
