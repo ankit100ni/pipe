@@ -7,7 +7,7 @@ name: CI/CD Pipeline
 
 on:
   pull_request:
-    types: [opened, reopened, edited]
+    types: [opened, edited]
     branches:
       - dev
 
@@ -27,4 +27,4 @@ jobs:
 
     - name: Workstation Setup
       run: |
-        sudo pwd
+        sudo pwd; sudo ls
