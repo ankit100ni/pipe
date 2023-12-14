@@ -66,7 +66,7 @@ jobs:
       run: | 
         echo "${{ vars.ORG_DETAILS }}" > ~/org.json
         ORG_CLIENT_NAME=$(cat org.json | jq '.org1.client_name') | tr -d '"'
-        ORG_CLIENT_KEY_NAME=${{secrets[env.ORG_CLIENT_KEY] }}
+        ORG_CLIENT_KEY_NAME=${{ secrets[env.ORG_CLIENT_KEY] }}
         echo $ORG_CLIENT_KEY_NAME
         sudo echo "${{ secrets.CHEFADMIN_KEY }}" > ~/.chef/chefadmin.pem
         echo $ORG_CLIENT_KEY
