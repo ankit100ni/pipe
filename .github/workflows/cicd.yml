@@ -77,4 +77,15 @@ jobs:
         git merge $GITHUB_HEAD_REF --no-ff --no-edit
         git push origin dev
 
+  merge-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Merge feature -> dev
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          target_branch: dev
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
