@@ -66,6 +66,8 @@ jobs:
       env:
         ORG_DATA: ${{ vars.ORG_DETAILS }}
       run: | 
+        echo $ORG_DATA
+        echo "========="
         sudo chmod 777 .github/workflows/setup_workstation.sh
         sudo sh .github/workflows/setup_workstation.sh
 
