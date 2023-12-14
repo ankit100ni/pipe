@@ -17,10 +17,7 @@ jobs:
 
     steps:
     - name: justForTesting
-      run: ls; pwd; tee; docker -v
-
-    - name: Calling
-      uses: policy_push.yml
+      run: ls; pwd; tee; docker -v; terraform version
 
     - name: Checkout code
       uses: actions/checkout@v4
@@ -49,11 +46,6 @@ jobs:
         sudo knife ssl fetch
         sudo knife ssl check
         sudo knife client list
-
-    # - name: Metadata Check
-    #   uses: actions/checkout@v4
-    #   with:
-    #     ref: 'dev'
 
     - name: Metadata Check
       run: |
