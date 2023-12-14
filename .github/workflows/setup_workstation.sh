@@ -20,7 +20,7 @@ echo "$json_data" | jq -r 'to_entries[] | "\(.key) \(.value.client_name) \(.valu
   echo "[default]" > "$config_file"
   echo "client_name     = \"$client_name\"" >> "$config_file"
   echo "client_key      = '/home/runner/.chef/$client_key_name_small.pem'" >> "$config_file"
-  echo "chef_server_url = 'https://ec2-3-109-213-111.ap-south-1.compute.amazonaws.com	/organizations/$org_name'" >> "$config_file"
+  echo "chef_server_url = 'https://ec2-3-109-213-111.ap-south-1.compute.amazonaws.com/organizations/$org_name'" >> "$config_file"
   
   cat $config_file
   
