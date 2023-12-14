@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CHEFADMIN=$2
-echo "=========================="
+echo $CHEFADMIN
 json_data=$1
 
 # Output directory location
