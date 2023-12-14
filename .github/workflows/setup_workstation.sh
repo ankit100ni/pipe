@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo $CHEFADMIN
+echo $2
 echo "=========================="
 json_data=$1
 
