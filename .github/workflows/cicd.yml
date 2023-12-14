@@ -65,5 +65,3 @@ jobs:
     - name: Setup Org
       run: | 
         sudo echo "${{ vars.ORG_DETAILS }}" 
-      env:
-        ORG_CLIENT_KEY: $(cat ~/org.json | jq '.org1.client_key_name') | tr -d '"'
