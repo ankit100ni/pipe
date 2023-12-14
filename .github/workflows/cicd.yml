@@ -6,8 +6,8 @@ on:
     branches:
       - dev
 
-env:
-  ORG_DATA: ${{ vars.ORG_DETAILS }}
+# env:
+#   ORG_DATA: ${{ vars.ORG_DETAILS }}
   
 
 jobs:
@@ -63,6 +63,8 @@ jobs:
         echo "Policy"
 
     - name: Setup Org
+      env:
+        ORG_DATA: ${{ vars.ORG_DETAILS }}
       run: | 
         export ORG_DATA
         sudo chmod 777 .github/workflows/setup_workstation.sh
