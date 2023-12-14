@@ -1,4 +1,5 @@
 #!/bin/bash
+echo $ORG_DATA
 
 json_data=$ORG_DATA
 
