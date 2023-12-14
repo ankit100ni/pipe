@@ -66,10 +66,10 @@ jobs:
       run: | 
         sudo chmod 777 ~/
         sudo echo "${{ vars.ORG_DETAILS }}" > ~/org.json
-        ORG_CLIENT_NAME=$(cat org.json | jq '.org1.client_name') | tr -d '"'
+        ORG_CLIENT_NAME=$(cat ~/org.json | jq '.org1.client_name') | tr -d '"'
         ORG_CLIENT_KEY_NAME=${{ secrets[env.ORG_CLIENT_KEY] }}
         echo $ORG_CLIENT_KEY_NAME
         echo $ORG_CLIENT_KEY
-        ORG_NAME=$(cat org.json | jq '.org1.org_name') | tr -d '"'
+        ORG_NAME=$(cat ~/org.json | jq '.org1.org_name') | tr -d '"'
       env:
-        ORG_CLIENT_KEY: $(cat org.json | jq '.org1.client_key_name') | tr -d '"'
+        ORG_CLIENT_KEY: $(cat ~/org.json | jq '.org1.client_key_name') | tr -d '"'
