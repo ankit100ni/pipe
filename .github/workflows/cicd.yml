@@ -64,4 +64,4 @@ jobs:
 
     - name: Setup Org
       run: | 
-        echo "$ORG_DATA" | jq '.'
+        echo "$ORG_DATA" | jq '.org1'
