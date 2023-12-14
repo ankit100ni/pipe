@@ -1,21 +1,7 @@
 #!/bin/bash
 
-# json_data='{
-#   "org1": {
-#     "client_name": "chefadmin",
-#     "client_key_name": "CHEFADMIN",
-#     "org_name": "qa"
-#   },
-#   "org2": {
-#     "client_name": "testuser",
-#     "client_key_name": "TESTUSER",
-#     "org_name": "chef_standalone"
-#   }
-# }'
-
 json_data=$1
-echo $json_data
-echo "=========="
+
 # Output directory location
 output_dir="$HOME/chef_configs"
 
