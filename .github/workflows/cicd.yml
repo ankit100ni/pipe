@@ -65,6 +65,6 @@ jobs:
     - name: Setup Org
       run: | 
         echo "$ORG_DATA" | jq '.org1'
-        A="$ORG_DATA" | jq '.org1.client_key_name'
+        A= $(echo"$ORG_DATA" | jq '.org1.client_key_name')
         echo $A
 
