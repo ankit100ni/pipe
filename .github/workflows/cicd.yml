@@ -13,7 +13,7 @@ jobs:
     steps:
     - name: justForTesting
       run: |
-        ls; pwd; tee; docker -v; terraform version
+        ls; pwd; tee; docker -v; terraform version; jq
         echo "${{ vars.ORG_DETAILS }}"
 
     - name: Checkout code
