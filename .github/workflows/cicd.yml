@@ -63,9 +63,10 @@ jobs:
         echo "Policy"
 
     - name: Setup Org
-      env:
-        CLIENT_KEY: eval(echo "$ORG_DATA" | jq '.org1.client_key_name')
+      # env:
+      #   CLIENT_KEY: eval(echo "$ORG_DATA" | jq '.org1.client_key_name')
       run: | 
+        CLIENT_KEY=$(echo "$ORG_DATA" | jq '.org1.client_key_name')
         echo "$CLIENT_KEY"
         MY_SECRET="${{ secrets[env.CLIENT_KEY] }}"
         echo $MY_SECRET
