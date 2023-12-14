@@ -2,6 +2,7 @@
 echo $ORG_DATA
 
 json_data=$ORG_DATA
+echo "jmd"
 
 # Use jq to get the keys of the JSON object
 org_keys=$(echo "$json_data" | jq -r 'keys_unsorted[]')
