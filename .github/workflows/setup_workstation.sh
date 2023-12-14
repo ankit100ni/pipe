@@ -13,16 +13,14 @@ json_data='{
   }
 }'
 
-# Output file location
+# Output directory location
 output_dir="$HOME/chef_configs"
 
 # Create output directory if it doesn't exist
 mkdir -p "$output_dir"
 
 # Parse JSON and extract values into variables in a loop
-echo "$json_data" | jq -r 'to_entries[] | "\(.key):client_name=\(.value.client_name)\nclient_key_name=\(.value.client_key_name)\norg_name=\(.value.org_name)\n"' | while read -r line; do
-  eval "$line"
-  
+echo "$json_data" | jq -r 'to_entries[] | "\(.key) \(.value.client_name) \(.value.client_key_name) \(.value.org_name)"' | while read -r org client_name client_key_name org_name; do
   # Create the configuration file
   config_file="$output_dir/chef_config_$org_name.conf"
   echo "[default]" > "$config_file"
