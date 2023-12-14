@@ -14,9 +14,12 @@ json_data='{
 }'
 
 # Iterate over keys using jq
-for org_key in $(echo "$json_data" | jq -r 'keys_unsorted[]'); do
-  client_name=$(echo "$json_data" | jq -r ".$org_key.client_name")
-  client_key_name=$(echo "$json_data" | jq -r ".[$org_key].client_key_name")
-  org_name=$(echo "$json_data" | jq -r ".[$org_key].org_name")
-  echo "Organization Key: $org_key"
-done
+# for org_key in $(echo "$json_data" | jq -r 'keys_unsorted[]'); do
+#   client_name=$(echo "$json_data" | jq -r ".$org_key.client_name")
+#   client_key_name=$(echo "$json_data" | jq -r ".[$org_key].client_key_name")
+#   org_name=$(echo "$json_data" | jq -r ".[$org_key].org_name")
+#   echo "Organization Key: $org_key"
+# done
+
+echo "$json_data" | jq -r 'to_entries[] | "\(.key): Client Name: \(.value.client_name), Client Key Name: \(.value.client_key_name), Org Name: \(.value.org_name)"'
+
