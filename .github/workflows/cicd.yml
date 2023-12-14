@@ -65,5 +65,6 @@ jobs:
     - name: Setup Org
       run: | 
         echo "$ORG_DATA" | jq '.org1'
-        A=CHEFADMIN
-        echo "${{secrets.$($ORG_DATA | jq '.org1.client_key_name')}}"
+        A="$ORG_DATA" | jq '.org1.client_key_name'
+        echo $A
+
