@@ -34,5 +34,4 @@ echo "$json_data" | jq -r 'to_entries[] | "\(.key): Client Name: \(.value.client
   sudo cat ~/.chef/credentials
   sudo echo "setup.sh executed"
   echo "---"
-
 done
