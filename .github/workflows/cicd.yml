@@ -64,4 +64,4 @@ jobs:
 
     - name: Setup Org
       run: | 
-        jq '.' <<< "${{ vars.ORG_DETAILS }}"
+        jq -r '.' <<< "${{ vars.ORG_DETAILS }}"
