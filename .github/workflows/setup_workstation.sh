@@ -3,7 +3,7 @@
 json_data=$1
 
 # Output directory location
-output_dir="$HOME/chef_configs"
+output_dir="$HOME/.chef"
 
 # Create output directory if it doesn't exist
 mkdir -p "$output_dir"
@@ -11,7 +11,7 @@ mkdir -p "$output_dir"
 # Parse JSON and extract values into variables in a loop
 echo "$json_data" | jq -r 'to_entries[] | "\(.key) \(.value.client_name) \(.value.client_key_name) \(.value.org_name)"' | while read -r org client_name client_key_name org_name; do
   # Create the configuration file
-  config_file="$output_dir/chef_config_$org_name.conf"
+  config_file="$output_dir/credentials"
   echo "[default]" > "$config_file"
   echo "client_name     = \"$client_name\"" >> "$config_file"
   echo "client_key      = '/home/runner/.chef/$client_key_name.pem'" >> "$config_file"
