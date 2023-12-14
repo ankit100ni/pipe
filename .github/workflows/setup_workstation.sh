@@ -14,7 +14,8 @@
 # }'
 
 json_data=$1
-
+echo $json_data
+echo "=========="
 # Output directory location
 output_dir="$HOME/chef_configs"
 
