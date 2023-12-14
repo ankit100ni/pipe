@@ -14,6 +14,7 @@ json_data='{
 }'
 
 # Output file location
+sudo mkdir -p ~/.chef
 output_file="~/.chef/credentials"
 
 # Function to create the configuration file
