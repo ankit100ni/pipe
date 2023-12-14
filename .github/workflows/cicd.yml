@@ -74,7 +74,6 @@ jobs:
     - name: Merge Pull Request
       if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged
       run: |
-        # Replace 'main' with your target branch
-        git checkout main
+        git checkout dev
         git merge $GITHUB_REF --no-ff --no-edit
         git push origin main
