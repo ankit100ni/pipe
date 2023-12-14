@@ -28,6 +28,7 @@ echo "$json_data" | jq -r 'to_entries[] | "\(.key) \(.value.client_name) \(.valu
   sudo ls -lhrt $HOME/.chef
   knife ssl fetch
   knife ssl check
+  knife client list
   echo " $COUNTER "
   COUNTER=$[$COUNTER +1]
 done
