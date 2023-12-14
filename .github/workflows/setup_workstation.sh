@@ -5,6 +5,7 @@ CHEFADMIN=$2
 TESTUSER=$3
 # Output directory location
 output_dir="/home/runner/.chef"
+COUNTER=1
 
 # Create output directory if it doesn't exist
 mkdir -p "$output_dir"
@@ -27,4 +28,6 @@ echo "$json_data" | jq -r 'to_entries[] | "\(.key) \(.value.client_name) \(.valu
   sudo ls -lhrt /home/runner/.chef
   knife ssl fetch
   knife ssl check
+  echo " $COUNTER "
+  COUNTER=$[$COUNTER +1]
 done
