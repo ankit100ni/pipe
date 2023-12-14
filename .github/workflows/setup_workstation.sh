@@ -24,5 +24,15 @@ echo "$json_data" | jq -r 'to_entries[] | "\(.key): Client Name: \(.value.client
   echo "Client Name: $client_name"
   echo "Client Key Name: $client_key_name"
   echo "Org Name: $org_name"
+
+  sudo tee cat ~/.chef/credentials > /dev/null <<EOT
+  [default]
+  client_name     = "$client_name"
+  client_key      = "/home/runner/.chef/$client_key_name.pem"
+  chef_server_url = "https://ec2-13-127-199-32.ap-south-1.compute.amazonaws.com/organizations/$org_name"
+  EOT
+  sudo cat ~/.chef/credentials
+  sudo echo "setup.sh executed"
   echo "---"
+
 done
