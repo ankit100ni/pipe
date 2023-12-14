@@ -63,10 +63,10 @@ jobs:
         echo "Policy"
 
     - name: Setup Org
+      env:
+        CLIENT_KEY: CHEFADMIN
       run: | 
         echo "$ORG_DATA" | jq '.org1'
-        A='CHEFADMIN'
-        echo $A
-        MY_SECRET="${{ secrets.A }}"
+        MY_SECRET="${{ secrets[env.CLIENT_KEY] }}"
         echo $MY_SECRET
 
