@@ -1,9 +1,8 @@
 #!/bin/bash
 
-CHEFADMIN=$2
-echo $CHEFADMIN
 json_data=$1
-
+CHEFADMIN=$2
+TESTUSER=$3
 # Output directory location
 output_dir="/home/runner/.chef"
 
