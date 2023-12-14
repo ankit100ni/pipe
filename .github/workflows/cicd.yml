@@ -64,9 +64,9 @@ jobs:
 
     - name: Setup Org
       env:
-        CLIENT_KEY: CHEFADMIN
+        CLIENT_KEY: $(echo "$ORG_DATA" | jq '.org1.client_key_name')
       run: | 
-        echo "$ORG_DATA" | jq '.org1'
+        echo "$CLIENT_KEY"
         MY_SECRET="${{ secrets[env.CLIENT_KEY] }}"
         echo $MY_SECRET
 
