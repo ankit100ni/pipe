@@ -64,4 +64,5 @@ jobs:
 
     - name: Setup Org
       run: | 
+        apt install jq
         jq -r '.' <<< "${{ vars.ORG_DETAILS }}"
