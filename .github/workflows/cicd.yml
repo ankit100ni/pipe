@@ -19,6 +19,9 @@ jobs:
         wget https://packages.chef.io/files/stable/chef-workstation/23.12.1055/ubuntu/22.04/chef-workstation_23.12.1055-1_amd64.deb; sudo dpkg -i chef-workstation_23.12.1055-1_amd64.deb
         echo 'yes' | sudo chef env
 
+    - name: Fetch Dev branch
+      run: git fetch origin dev:dev
+
     - name: Metadata Check
       run: |
         git branch
