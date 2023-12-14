@@ -15,10 +15,6 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-    # - name: justForTesting
-    #   run: |
-    #     ls; pwd; tee; docker -v; terraform version; jq
-
     - name: Checkout code
       uses: actions/checkout@v4
 
@@ -27,36 +23,16 @@ jobs:
         wget https://packages.chef.io/files/stable/chef-workstation/23.12.1055/ubuntu/22.04/chef-workstation_23.12.1055-1_amd64.deb; sudo dpkg -i chef-workstation_23.12.1055-1_amd64.deb
         echo 'yes' | sudo chef env
 
-    # - name: Workstation Setup
-    #   run: |
-    #     sudo pwd; sudo ls -a; sudo tree; sudo tree .github
-    #     sudo chmod 777 .github/workflows/setup.sh
-    #     sudo sh .github/workflows/setup.sh
-    #     sudo mkdir -p ~/.chef
-    #     sudo chmod 777 ~/.chef
-    #     sudo echo "${{ secrets.CHEFADMIN_KEY }}" > ~/.chef/chefadmin.pem
-    #     sudo ls -lhrt ~/.chef/
-    #     sudo chown runner:runner ~/.chef/chefadmin.pem
-    #     sudo chmod 400 ~/.chef/chefadmin.pem
-    #     sudo cat ~/.chef/chefadmin.pem
-    #     echo "testing recommit"
-
-    # - name: Knife Setup
-    #   run: |
-    #     sudo knife ssl fetch
-    #     sudo knife ssl check
-    #     sudo knife client list
-
     - name: Metadata Check
       run: |
         git branch
         sudo chmod 777 .github/workflows/metadatacheck.sh
         sudo sh .github/workflows/metadatacheck.sh
 
-    # - name: Kitchen
-    #   run: | 
-    #     kitchen verify
-    #     kitchen destroy
+    - name: Kitchen
+      run: | 
+        kitchen verify
+        kitchen destroy
 
     - name: Set up environment
       run: |
@@ -78,10 +54,6 @@ jobs:
           echo "File created: $output_dir/$secret_name.pem"
         done
         ls -lhrt /home/runner/.chef
-
-    - name: Policy Management
-      run: | 
-        echo "Policy"
 
     - name: Setup Org
       run: | 
