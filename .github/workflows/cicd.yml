@@ -8,6 +8,7 @@ on:
 
 env:
   ORG_DATA: ${{ vars.ORG_DETAILS }}
+  
 
 jobs:
   build:
@@ -17,7 +18,6 @@ jobs:
     - name: justForTesting
       run: |
         ls; pwd; tee; docker -v; terraform version; jq
-        echo "${{ vars.ORG_DETAILS }}"
 
     - name: Checkout code
       uses: actions/checkout@v4
@@ -65,3 +65,5 @@ jobs:
     - name: Setup Org
       run: | 
         echo "$ORG_DATA" | jq '.org1'
+        A=CHEFADMIN
+        echo "${{secrets[env.A]}}"
