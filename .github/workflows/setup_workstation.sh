@@ -5,13 +5,13 @@ echo "=========================="
 json_data=$1
 
 # Output directory location
-output_dir="~/.chef"
+output_dir="/home/runner/.chef"
 
 # Create output directory if it doesn't exist
 mkdir -p "$output_dir"
 
 # Creating the pem file
-echo "$CHEFADMIN" > ~/.chef/chefadmin.pem
+echo "$CHEFADMIN" > /home/runner/.chef/chefadmin.pem
 
 # Parse JSON and extract values into variables in a loop
 echo "$json_data" | jq -r 'to_entries[] | "\(.key) \(.value.client_name) \(.value.client_key_name) \(.value.org_name)"' | while read -r org client_name client_key_name org_name; do
@@ -24,6 +24,6 @@ echo "$json_data" | jq -r 'to_entries[] | "\(.key) \(.value.client_name) \(.valu
   echo "chef_server_url = 'https://ec2-13-127-199-32.ap-south-1.compute.amazonaws.com/organizations/$org_name'" >> "$config_file"
   
   cat $config_file
-  sudo echo "${{ secrets.CHEFADMIN_KEY }}" > ~/.chef/chefadmin.pem
-  sudo ls -lhrt ~/.chef
+  sudo echo "${{ secrets.CHEFADMIN_KEY }}" > /home/runner/.chef/chefadmin.pem
+  sudo ls -lhrt /home/runner/.chef
 done
