@@ -65,11 +65,11 @@ jobs:
     - name: Setup Org
       run: | 
         sudo chmod 777 .github/workflows/setup_workstation.sh
-        sudo sh .github/workflows/setup_workstation.sh "$ORG_DATA" "$CHEFADMIN"
+        sudo sh .github/workflows/setup_workstation.sh "$ORG_DATA"
         echo $CHEFADMIN
       env:
         ORG_DATA: ${{ vars.ORG_DETAILS }}
-        CHEFADMIN: ${{ secrets.CHEFADMIN }}
+        CHEFADMIN_KEY: ${{ secrets.CHEFADMIN }}
 
 
 
