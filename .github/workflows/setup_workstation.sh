@@ -1,13 +1,21 @@
 #!/bin/bash
-echo $ORG_DATA
 
-json_data=$ORG_DATA
-echo "jmd"
+json_data='{
+  "org1": {
+    "client_name": "chefadmin",
+    "client_key_name": "CHEFADMIN",
+    "org_name": "qa"
+  },
+  "org2": {
+    "client_name": "testuser",
+    "client_key_name": "TESTUSER",
+    "org_name": "chef_standalone"
+  }
+}'
 
 # Use jq to get the keys of the JSON object
-org_keys=$(echo "$json_data" | jq -r 'keys_unsorted[]')
+org_keys=($(echo "$json_data" | jq -r 'keys_unsorted[]'))
 
-echo $org_keys
 # Iterate over the keys
 for org_key in "${org_keys[@]}"; do
   client_name=$(echo "$json_data" | jq -r ".[$org_key].client_name")
