@@ -67,7 +67,7 @@ jobs:
       #   CLIENT_KEY: eval(echo "$ORG_DATA" | jq '.org1.client_key_name')
       run: | 
         CLIENT_KEY=$(echo "$ORG_DATA" | jq '.org1.client_key_name' | tr -d '"')
-        export $CLIENT_KEY
+        export CLIENT_KEY
         MY_SECRET="${{ secrets[env.CLIENT_KEY] }}"
         echo $MY_SECRET
 
