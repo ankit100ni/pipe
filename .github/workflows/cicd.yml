@@ -71,21 +71,10 @@ jobs:
         git config user.email "ankit.soni@progress.com"
         git config user.name "ankit100ni"
 
-    - name: Merge to Dev
+    - name: Merge Pull Request
+      if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged
       run: |
-        git checkout dev
-        git merge $GITHUB_HEAD_REF --no-ff --no-edit
-        git push origin dev
-
-  merge-branch:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-
-      - name: Merge feature -> dev
-        uses: devmasx/merge-branch@master
-        with:
-          type: now
-          target_branch: dev
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-
+        # Replace 'main' with your target branch
+        git checkout main
+        git merge $GITHUB_REF --no-ff --no-edit
+        git push origin main
