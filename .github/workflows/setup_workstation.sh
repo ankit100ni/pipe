@@ -14,8 +14,7 @@ json_data='{
 }'
 
 # Output file location
-sudo mkdir -p ~/.chef
-output_file="~/.chef/credentials"
+output_file="$HOME/chef_config.conf"
 
 # Function to create the configuration file
 create_config_file() {
@@ -32,4 +31,4 @@ echo "$json_data" | jq -r 'to_entries[] | "\(.key):client_name=\(.value.client_n
 done
 
 echo "Configuration files created. Output files: $output_file.*"
-cat ~/.chef/credentials
+cat $HOME/chef_config.conf
