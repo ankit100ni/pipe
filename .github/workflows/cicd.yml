@@ -63,5 +63,15 @@ jobs:
         CHEFADMIN: ${{ secrets.CHEFADMIN }}
         TESTUSER: ${{ secrets.TESTUSER }}
 
+    - name: Set up Git
+      run: |
+        git config user.email "ankit.soni@progress.com"
+        git config user.name "ankit100ni"
+
+    - name: Merge to Dev
+      run: |
+        git checkout dev
+        git merge $GITHUB_HEAD_REF --no-ff --no-edit
+        git push origin dev
 
 
