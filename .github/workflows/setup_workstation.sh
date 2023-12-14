@@ -11,7 +11,6 @@ output_dir="/home/runner/.chef"
 mkdir -p "$output_dir"
 
 # Creating the pem file
-echo "$CHEFADMIN" > /home/runner/.chef/chefadmin.pem
 
 # Parse JSON and extract values into variables in a loop
 echo "$json_data" | jq -r 'to_entries[] | "\(.key) \(.value.client_name) \(.value.client_key_name) \(.value.org_name)"' | while read -r org client_name client_key_name org_name; do
@@ -23,5 +22,6 @@ echo "$json_data" | jq -r 'to_entries[] | "\(.key) \(.value.client_name) \(.valu
   echo "chef_server_url = 'https://ec2-13-127-199-32.ap-south-1.compute.amazonaws.com/organizations/$org_name'" >> "$config_file"
   
   cat $config_file
+  echo "$CHEFADMIN" > /home/runner/.chef/chefadmin.pem
   sudo ls -lhrt /home/runner/.chef
 done
