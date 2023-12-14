@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "$CHEFADMIN"
+echo "SECRET: $CHEFADMIN"
 
 json_data=$1
 
