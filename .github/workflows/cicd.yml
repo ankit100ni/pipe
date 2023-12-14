@@ -22,10 +22,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    # - name: Installing Workstation
-    #   run: |
-    #     wget https://packages.chef.io/files/stable/chef-workstation/23.12.1055/ubuntu/22.04/chef-workstation_23.12.1055-1_amd64.deb; sudo dpkg -i chef-workstation_23.12.1055-1_amd64.deb
-    #     echo 'yes' | sudo chef env
+    - name: Installing Workstation
+      run: |
+        wget https://packages.chef.io/files/stable/chef-workstation/23.12.1055/ubuntu/22.04/chef-workstation_23.12.1055-1_amd64.deb; sudo dpkg -i chef-workstation_23.12.1055-1_amd64.deb
+        echo 'yes' | sudo chef env
 
     # - name: Workstation Setup
     #   run: |
@@ -47,11 +47,11 @@ jobs:
     #     sudo knife ssl check
     #     sudo knife client list
 
-    # - name: Metadata Check
-    #   run: |
-    #     git branch
-    #     sudo chmod 777 .github/workflows/metadatacheck.sh
-    #     sudo sh .github/workflows/metadatacheck.sh
+    - name: Metadata Check
+      run: |
+        git branch
+        sudo chmod 777 .github/workflows/metadatacheck.sh
+        sudo sh .github/workflows/metadatacheck.sh
 
     # - name: Kitchen
     #   run: | 
