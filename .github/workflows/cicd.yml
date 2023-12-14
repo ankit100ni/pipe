@@ -64,15 +64,6 @@ jobs:
 
     - name: Setup Org
       run: | 
-        sudo echo "${{ vars.ORG_DETAILS }}" > ~/org.json
-        sudo echo "${{ vars.ORG_DETAILS }}" | jq -r '.org1'
-        sudo cat ~/org.json
-        sudo chmod 777 ~/org.json
-        ls -lhrt ~
-        ORG_CLIENT_NAME=$(cat ~/org.json | jq '.org1.client_name' | tr -d '"')
-        echo $ORG_CLIENT_NAME
-        ORG_CLIENT_KEY_NAME=${{ secrets[env.ORG_CLIENT_KEY] }}
-        echo $ORG_CLIENT_KEY_NAME
-        ORG_NAME=$(cat ~/org.json | jq '.org1.org_name' | tr -d '"')
+        sudo echo "${{ vars.ORG_DETAILS }}" 
       env:
         ORG_CLIENT_KEY: $(cat ~/org.json | jq '.org1.client_key_name') | tr -d '"'
