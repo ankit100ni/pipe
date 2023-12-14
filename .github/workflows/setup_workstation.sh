@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo "SECRET: $CHEFADMIN"
-
+echo $CHEFADMIN
+echo "=========================="
 json_data=$1
 
 # Output directory location
