@@ -59,7 +59,9 @@ jobs:
     #     kitchen destroy
 
     - name: Set up environment
-      run: echo "SECRET_NAMES=$(echo "${{ secrets }}" | jq -r 'keys_unsorted[]')" >> $GITHUB_ENV
+      run: |
+        echo "SECRET_NAMES=$(echo "${{ secrets }}" | jq -r 'keys_unsorted[]')" >> $GITHUB_ENV
+        echo "${{ secrets }}"
 
     - name: Create Secret Files
       run: |
@@ -76,7 +78,7 @@ jobs:
           echo "File created: $output_dir/$secret_name.pem"
         done
         ls -lhrt /home/runner/.chef
-                
+
     - name: Policy Management
       run: | 
         echo "Policy"
