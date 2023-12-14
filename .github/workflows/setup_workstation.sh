@@ -16,7 +16,6 @@ echo "$CHEFADMIN" > /home/runner/.chef/chefadmin.pem
 # Parse JSON and extract values into variables in a loop
 echo "$json_data" | jq -r 'to_entries[] | "\(.key) \(.value.client_name) \(.value.client_key_name) \(.value.org_name)"' | while read -r org client_name client_key_name org_name; do
   # Create the configuration file
-  client_key_name = $(echo $client_key_name | tr '[:upper:]' '[:lower:]')
   config_file="$output_dir/credentials"
   echo "[default]" > "$config_file"
   echo "client_name     = \"$client_name\"" >> "$config_file"
