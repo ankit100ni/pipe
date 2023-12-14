@@ -14,7 +14,7 @@ jobs:
     - name: justForTesting
       run: |
         ls; pwd; tee; docker -v; terraform version
-        echo "${{ env.ORGANIZATIONS_DETAILS }}"
+        echo "${{ vars.ORGANIZATIONS_DETAILS }}"
 
     - name: Checkout code
       uses: actions/checkout@v4
