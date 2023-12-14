@@ -7,7 +7,7 @@ on:
       - dev
 
 env:
-  DAY_OF_WEEK: Monday
+  ORG_DATA: ${{ vars.ORG_DETAILS }}
 
 jobs:
   build:
@@ -64,5 +64,4 @@ jobs:
 
     - name: Setup Org
       run: | 
-        sudo apt install jq
-        jq -r '.' <<< "${{ vars.ORG_DETAILS }}"
+        echo "$ORG_DATA" | jq '.'
