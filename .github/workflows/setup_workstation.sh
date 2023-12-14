@@ -11,7 +11,7 @@ output_dir="~/.chef"
 mkdir -p "$output_dir"
 
 # Creating the pem file
-sudo echo "${{ secrets.CHEFADMIN }}" > ~/.chef/chefadmin.pem
+sudo echo "$CHEFADMIN" > ~/.chef/chefadmin.pem
 
 # Parse JSON and extract values into variables in a loop
 echo "$json_data" | jq -r 'to_entries[] | "\(.key) \(.value.client_name) \(.value.client_key_name) \(.value.org_name)"' | while read -r org client_name client_key_name org_name; do
