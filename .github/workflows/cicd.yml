@@ -68,7 +68,7 @@ jobs:
         sudo sh .github/workflows/setup_workstation.sh "$ORG_DATA"
       env:
         ORG_DATA: ${{ vars.ORG_DETAILS }}
-        CHEFADMIN: ${{ secrets.CHEFADMIN_KEY }}
+        CHEFADMIN: ${{ secrets.CHEFADMIN }}
 
 
 
