@@ -23,6 +23,5 @@ echo "$json_data" | jq -r 'to_entries[] | "\(.key) \(.value.client_name) \(.valu
   echo "chef_server_url = 'https://ec2-13-127-199-32.ap-south-1.compute.amazonaws.com/organizations/$org_name'" >> "$config_file"
   
   cat $config_file
-  sudo echo "${{ secrets.CHEFADMIN_KEY }}" > /home/runner/.chef/chefadmin.pem
   sudo ls -lhrt /home/runner/.chef
 done
