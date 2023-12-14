@@ -66,6 +66,7 @@ jobs:
       run: | 
         sudo echo "${{ vars.ORG_DETAILS }}" > ~/org.json
         sudo cat ~/org.json
+        sudo chmod 777 ~/org.json
         ORG_CLIENT_NAME=$(cat ~/org.json | jq '.org1.client_name' | tr -d '"')
         echo $ORG_CLIENT_NAME
         ORG_CLIENT_KEY_NAME=${{ secrets[env.ORG_CLIENT_KEY] }}
