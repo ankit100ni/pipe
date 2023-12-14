@@ -1,7 +1,6 @@
 #!/bin/bash
 
-echo "key : $CHEFADMIN_KEY"
-CHEFADMIN=$CHEFADMIN_KEY
+CHEFADMIN=$2
 echo "=========================="
 json_data=$1
 
