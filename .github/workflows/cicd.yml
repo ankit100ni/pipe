@@ -64,7 +64,7 @@ jobs:
 
     - name: Setup Org
       env:
-        CLIENT_KEY: $(echo "$ORG_DATA" | jq '.org1.client_key_name')
+        CLIENT_KEY: eval(echo "$ORG_DATA" | jq '.org1.client_key_name')
       run: | 
         echo "$CLIENT_KEY"
         MY_SECRET="${{ secrets[env.CLIENT_KEY] }}"
