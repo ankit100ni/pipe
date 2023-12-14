@@ -64,6 +64,7 @@ jobs:
 
     - name: Setup Org
       run: | 
+        export ORG_DATA
         sudo chmod 777 .github/workflows/setup_workstation.sh
         sudo sh .github/workflows/setup_workstation.sh
 
