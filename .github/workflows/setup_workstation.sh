@@ -3,7 +3,7 @@
 json_data=$ORG_DATA
 
 # Use jq to get the keys of the JSON object
-org_keys=($(echo "$json_data" | jq -r 'keys_unsorted[]'))
+org_keys=$(echo "$json_data" | jq -r 'keys_unsorted[]')
 
 # Iterate over the keys
 for org_key in "${org_keys[@]}"; do
