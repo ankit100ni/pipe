@@ -64,4 +64,4 @@ jobs:
 
     - name: Setup Org
       run: | 
-        sudo echo "${{ vars.ORG_DETAILS }}" 
+        sudo echo "${{ vars.ORG_DETAILS }}" | jq -r '.'
