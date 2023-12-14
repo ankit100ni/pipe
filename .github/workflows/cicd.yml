@@ -6,6 +6,9 @@ on:
     branches:
       - dev
 
+env:
+  DAY_OF_WEEK: Monday
+
 jobs:
   build:
     runs-on: ubuntu-20.04
@@ -58,3 +61,13 @@ jobs:
     - name: Policy Management
       run: | 
         echo "Policy"
+
+    - name: Setup Org
+      run: | 
+        echo "${{ vars.ORG_DETAILS }}" > ~/org.json
+        ORG_CLIENT_NAME=$(cat org.json | jq '.org1.client_name') | tr -d '"'
+        ORG_CLIENT_KEY=$(cat org.json | jq '.org1.client_key_name') | tr -d '"'
+        ORG_CLIENT_KEY=${{secrets.$(ORG_CLIENT_KEY)}}
+        echo $ORG_CLIENT_KEY
+        ORG_NAME=$(cat org.json | jq '.org1.org_name') | tr -d '"'
+        CHEF_SERVER_URL=${{ vars.CHEF_SERVER_URL}}
