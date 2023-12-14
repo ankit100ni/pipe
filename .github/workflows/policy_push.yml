@@ -1,7 +1,10 @@
 name: policy_push
 
 on:
-  pull_request:
+  workflow_run:
+    workflows: ["CI/CD Pipeline"]
+    types:
+      - completed
     
 jobs:
   build:

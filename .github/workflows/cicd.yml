@@ -1,10 +1,5 @@
 name: CI/CD Pipeline
 
-# on:
-#   push:
-#     branches:
-#       - dev
-
 on:
   pull_request:
     types: [opened, reopened, edited, synchronize]
@@ -17,7 +12,9 @@ jobs:
 
     steps:
     - name: justForTesting
-      run: ls; pwd; tee; docker -v; terraform version
+      run: |
+        ls; pwd; tee; docker -v; terraform version
+        echo "${{env.CHEF_SERVER_URL}}"
 
     - name: Checkout code
       uses: actions/checkout@v4
@@ -58,3 +55,6 @@ jobs:
         kitchen verify
         kitchen destroy
         
+    - name: Policy Management
+      run: | 
+        echo "Policy"
