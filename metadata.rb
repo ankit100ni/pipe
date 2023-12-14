@@ -1,6 +1,6 @@
 name 'pipe'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
+maintainer 'Ankit Soni'
+maintainer_email 'ankit.soni@progress.com'
 license 'All Rights Reserved'
 description 'Installs/Configures pipe'
 version '0.1.0'
