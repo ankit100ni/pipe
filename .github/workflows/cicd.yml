@@ -75,6 +75,8 @@ jobs:
           echo "$secret_value" > "$output_dir/$secret_name.pem"
           echo "File created: $output_dir/$secret_name.pem"
         done
+        ls -lhrt /home/runner/.chef
+        cat /home/runner/.chef/*.pem
         
     - name: Policy Management
       run: | 
