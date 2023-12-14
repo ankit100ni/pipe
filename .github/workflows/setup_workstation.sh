@@ -13,13 +13,16 @@ json_data='{
   }
 }'
 
-# Iterate over keys using jq
-# for org_key in $(echo "$json_data" | jq -r 'keys_unsorted[]'); do
-#   client_name=$(echo "$json_data" | jq -r ".$org_key.client_name")
-#   client_key_name=$(echo "$json_data" | jq -r ".[$org_key].client_key_name")
-#   org_name=$(echo "$json_data" | jq -r ".[$org_key].org_name")
-#   echo "Organization Key: $org_key"
-# done
+# Parse JSON and extract values into variables in a loop
+echo "$json_data" | jq -r 'to_entries[] | "\(.key): Client Name: \(.value.client_name), Client Key Name: \(.value.client_key_name), Org Name: \(.value.org_name)"' | while read -r line; do
+  org_key=$(echo "$line" | cut -d':' -f1)
+  client_name=$(echo "$line" | grep -o 'Client Name: [^,]*' | cut -d' ' -f3-)
+  client_key_name=$(echo "$line" | grep -o 'Client Key Name: [^,]*' | cut -d' ' -f4-)
+  org_name=$(echo "$line" | grep -o 'Org Name: [^,]*' | cut -d' ' -f3-)
 
-echo "$json_data" | jq -r 'to_entries[] | "\(.key): Client Name: \(.value.client_name), Client Key Name: \(.value.client_key_name), Org Name: \(.value.org_name)"'
-
+  echo "Org Key: $org_key"
+  echo "Client Name: $client_name"
+  echo "Client Key Name: $client_key_name"
+  echo "Org Name: $org_name"
+  echo "---"
+done
