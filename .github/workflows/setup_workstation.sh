@@ -1,24 +1,29 @@
 #!/bin/bash
 
-echo $2
+CHEFADMIN=$2
 echo "=========================="
 json_data=$1
 
 # Output directory location
-output_dir="$HOME/.chef"
+output_dir="~/.chef"
 
 # Create output directory if it doesn't exist
 mkdir -p "$output_dir"
 
+# Creating the pem file
+sudo echo "${{ secrets.CHEFADMIN }}" > ~/.chef/chefadmin.pem
+
 # Parse JSON and extract values into variables in a loop
 echo "$json_data" | jq -r 'to_entries[] | "\(.key) \(.value.client_name) \(.value.client_key_name) \(.value.org_name)"' | while read -r org client_name client_key_name org_name; do
   # Create the configuration file
+  $client_key_name = $(echo $client_key_name | tr '[:upper:]' '[:lower:]')
   config_file="$output_dir/credentials"
   echo "[default]" > "$config_file"
   echo "client_name     = \"$client_name\"" >> "$config_file"
   echo "client_key      = '/home/runner/.chef/$client_key_name.pem'" >> "$config_file"
   echo "chef_server_url = 'https://ec2-13-127-199-32.ap-south-1.compute.amazonaws.com/organizations/$org_name'" >> "$config_file"
   
-  echo "Configuration file created: $config_file"
   cat $config_file
+  sudo echo "${{ secrets.CHEFADMIN_KEY }}" > ~/.chef/chefadmin.pem
+  sudo ls -lhrt ~/.chef
 done
