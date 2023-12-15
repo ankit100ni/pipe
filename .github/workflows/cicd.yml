@@ -22,7 +22,7 @@ jobs:
 
 
     - name: Auto-Merge on PR Close
-      if: github.event_name == 'pull_request' && github.event.pull_request.merged
+      if: github.event_name == 'pull_request'
       run: |
         # Replace 'main' with your target branch
         git checkout main
