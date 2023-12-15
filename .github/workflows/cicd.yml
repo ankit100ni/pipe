@@ -16,6 +16,7 @@ jobs:
 
     - name: PR Test
       run: |
+        echo "----- ${{ vars.CHEF_SERVER_URL }}"
         echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
         echo $GITHUB_HEAD_REF	
         echo $GITHUB_REF
