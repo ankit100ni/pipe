@@ -23,6 +23,10 @@ jobs:
     - name: Fetch Dev branch
       run: git fetch origin dev:dev
 
+    - name: Set GH_TOKEN environment variable
+      run: |
+        echo "env:\n  GH_TOKEN: \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" > $GITHUB_ENV
+
     - name: Auto-Merge on PR Close
       if: github.event_name == 'pull_request'
       run: |
