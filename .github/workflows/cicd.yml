@@ -26,7 +26,7 @@ jobs:
       run: |
         git branch
         sudo chmod 777 .github/workflows/metadatacheck.sh
-        sudo sh .github/workflows/metadatacheck.sh
+        sudo bash .github/workflows/metadatacheck.sh
 
     - name: Linting Check
       run: cookstyle
