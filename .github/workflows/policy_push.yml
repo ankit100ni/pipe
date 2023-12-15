@@ -1,0 +1,15 @@
+name: policy_push
+
+on:
+  workflow_run:
+    workflows: ["CI/CD Pipeline"]
+    types:
+      - completed
+    
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - name: justForTesting
+      run: ls; pwd; tee; docker -v
