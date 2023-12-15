@@ -19,6 +19,7 @@ jobs:
         echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
         echo $GITHUB_HEAD_REF	
         echo $GITHUB_REF
+        echo ${{ github.event.number }}
 
     - name: Fetch Dev branch
       run: git fetch origin dev:dev
@@ -27,9 +28,3 @@ jobs:
       run: |
         echo "env:\n  GH_TOKEN: \${{ secrets.GH_TOKEN }}" > $GITHUB_ENV
 
-    - name: Auto-Merge on PR Close
-      if: github.event_name == 'pull_request'
-      run: |
-        # Replace 'main' with your target branch
-        git checkout dev
-        gh pr merge ${{ github.event.pull_request.number }} --squash --auto
