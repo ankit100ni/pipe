@@ -20,6 +20,8 @@ jobs:
         echo $GITHUB_HEAD_REF	
         echo $GITHUB_REF
 
+    - name: Fetch Dev branch
+      run: git fetch origin dev:dev
 
     - name: Auto-Merge on PR Close
       if: github.event_name == 'pull_request'
