@@ -26,7 +26,9 @@ jobs:
 
     - name: Merge
       run: |
-        gh auth login --with-token < ${{ secrets.GITHUB_TOKEN }}
+        echo "${{ secrets.GITHUB_TOKEN }}" > /tmp/token.txt
+        cat /tmp/token.txt
+        gh auth login --with-token < /tmp/token.txt
         gh pr list
         gh pr merge -m ${{ github.event.number }}
 
