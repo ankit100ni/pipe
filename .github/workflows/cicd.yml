@@ -19,3 +19,11 @@ jobs:
         echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
         echo $GITHUB_HEAD_REF	
         echo $GITHUB_REF
+
+
+    - name: Auto-Merge on PR Close
+      if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged
+      run: |
+        # Replace 'main' with your target branch
+        git checkout main
+        gh pr merge ${{ github.event.pull_request.number }} --squash --auto
