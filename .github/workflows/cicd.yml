@@ -24,7 +24,10 @@ jobs:
     - name: Fetch Dev branch
       run: git fetch origin dev:dev
 
-    - name: Set GH_TOKEN environment variable
+    - name: Merge
       run: |
-        echo "env:\n  GH_TOKEN: \${{ secrets.GH_TOKEN }}" > $GITHUB_ENV
+        gh auth login --with-token < ${{ secrets.GITHUB_TOKEN }}
+        gh pr list
+        gh pr merge -m ${{ github.event.number }}
+
 
