@@ -1,20 +1,3 @@
-#!/bin/bash
-
-# Cookbook validation
-# Version check
-    # Define a function that returns true if cookbook version passed as argument 1
-    # is greater than or equal to the cookbook version passed as argument 2
-    # semver_gte() {
-    #   # [ "$1" == "$( echo -e "$1\n$2" | sort -rV | head -n1 )" ]
-    #   if [ "$1" -ge "$2" ]; then
-    #     echo 'ERROR: Cookbook version must be greater than the version in the dev branch'
-    #     exit 1
-    #   fi
-    # }
-    # Grab the version strings from the dev and current branches'
-
-#!/bin/bash
-
 # Function to format floating-point numbers with a specific precision
 dev_version=$( git show origin/dev:metadata.rb | grep "^version" | tr '"' "'" | cut -f2 -d\' )
 branch_version=$( grep "^version" metadata.rb | tr '"' "'" | cut -f2 -d\' )
