@@ -15,8 +15,12 @@ jobs:
       run : echo "Input Validation"
 
     - name: Chef org user pem files upload
+      env:
+        CHEFADMIN: ${{secrets.CHEFADMIN}}
       run: |
-        echo ${{ secrets.CHEFADMIN }}
+        sudo chmod 777 .github/workflows/test.sh
+        sudo bash .github/workflows/test.sh
+  
 
       
     # - name: Checkout code
