@@ -15,12 +15,7 @@ jobs:
       run : echo "Input Validation"
 
     - name: Chef org user pem files upload
-      run: |
-        REPO_OWNER=ankit100ni
-        REPO_NAME=pipe
-        TOKEN=${{ secrets.GH_TOKEN }}
-        SECRET="CHEFADMIN"
-        echo ${{ secrets[format(env.SECRET)] }}
+      run: echo ${{ secrets[format(env.SECRET)] }}
       env:
         SECRET: "CHEFADMIN"
 
