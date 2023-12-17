@@ -21,19 +21,22 @@ jobs:
     - name: Save Secrets to File
       run: |
         # Define an array of secret names
-        SECRET_NAMES=("SECRET_NAME_1" "SECRET_NAME_2" "SECRET_NAME_3")
+        SECRET_NAMES=("CHEFADMIN" "TESTUSER")
 
         # Loop through each secret name
         for SECRET_NAME in "${SECRET_NAMES[@]}"; do
-          # Retrieve the content of the secret
-          SECRET_CONTENT="${{ secrets.${SECRET_NAME} }}"
+          # Use GitHub's REST API to fetch the secret value
+          SECRET_CONTENT=$(curl -sSL "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/secrets/${SECRET_NAME}" \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" | jq -r .data.value)
 
           # Save the content to a file with the secret name
           echo "$SECRET_CONTENT" > "${SECRET_NAME}_secret.txt"
+          ls -lhrt
 
           # Set more restrictive permissions on the file
           chmod 600 "${SECRET_NAME}_secret.txt"
         done
+
 
     # - name: Chef org user pem files upload
     #   run: |
