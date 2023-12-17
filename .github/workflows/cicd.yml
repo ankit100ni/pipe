@@ -23,7 +23,7 @@ jobs:
         CHEFADMIN: ${{secrets.CHEFADMIN}}
       run: |
         echo $CHEFADMIN
-        echo ${{secrets[env.CHEFADMIN]}}
+        echo ${{ env.CHEFADMIN }}
 
 
     # - name: Installing Workstation
