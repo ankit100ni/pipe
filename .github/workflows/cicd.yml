@@ -20,8 +20,7 @@ jobs:
 
     - name: Save Secrets to File
       run: |
-        curl -sSL "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/secrets/CHEFADMIN" \
-        -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" | jq -r .data.value
+        echo $GITHUB_ENV
 
 
     # - name: Chef org user pem files upload
