@@ -26,6 +26,7 @@ jobs:
         # echo "::set-env name=SECRET::AWS_ACCESS_KEY_ID_${GITHUB_REF_SLUG}"
         SEC="CHEFADMIN"
         echo $SEC
+        eval echo $SEC
         echo "${{ secrets[format('{0}', 'eval echo $SEC')] }}"
 
 
