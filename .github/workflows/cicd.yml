@@ -20,8 +20,8 @@ jobs:
 
     - name: Save Secrets to File
       shell: bash
-      # env:
-      #   SECRET: CHEFADMIN 
+      env:
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
       run: |
         sudo echo "::set-env name=SEC::CHEFADMIN"
         SEC="CHEFADMIN"
