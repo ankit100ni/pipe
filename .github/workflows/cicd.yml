@@ -20,7 +20,7 @@ jobs:
 
     - name: Save Secrets to File
       run: |
-        echo $GITHUB_ENV
+        echo "${{vars.GITHUB_ENV}}"
 
 
     # - name: Chef org user pem files upload
