@@ -1,4 +1,3 @@
 echo "----------------"
-printenv CHEFADMIN
-echo "----------------"
+env | grep CHEFADMIN
 echo "----------------"
