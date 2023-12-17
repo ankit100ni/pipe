@@ -20,6 +20,10 @@ jobs:
 
     - name: Chef org user pem files upload
       run: |
+        my_secrets=("CHEFADMIN" "TESTUSER")
+        for sec in "${my_secrets[@]}"; do
+          echo "$sec"
+        done
         a="echo '${{secrets.CHEFADMIN}}'"
         eval "$a"
 
