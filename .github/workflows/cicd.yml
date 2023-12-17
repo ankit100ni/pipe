@@ -19,15 +19,8 @@ jobs:
         REPO_OWNER=ankit100ni
         REPO_NAME=pipe
         TOKEN=${{ secrets.GH_TOKEN }}
-
-        # SECRETS=$(curl -s -H "Authorization: token $TOKEN" \
-        #   "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/actions/secrets" \
-        #   | jq '.secrets[].name'
-          
-          # curl -H "Authorization: token $TOKEN" \
-          # "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/actions/secrets/CHEFADMIN"
-          SECRET="CHEFADMIN"
-          echo ${{ secrets[format(env.SECRET)] }}
+        SECRET="CHEFADMIN"
+        echo ${{ secrets[format(env.SECRET)] }}
       env:
         SECRET: "CHEFADMIN"
 
