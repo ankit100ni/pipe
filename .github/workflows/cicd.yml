@@ -20,8 +20,8 @@ jobs:
 
     - name: Save Secrets to File
       shell: bash
-      env:
-        SECRET: CHEFADMIN 
+      # env:
+      #   SECRET: CHEFADMIN 
       run: |
         # echo "::set-env name=SECRET::AWS_ACCESS_KEY_ID_${GITHUB_REF_SLUG}"
         SEC="CHEFADMIN"
