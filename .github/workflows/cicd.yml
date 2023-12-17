@@ -36,7 +36,7 @@ jobs:
           # Set more restrictive permissions on the file
           chmod 600 "${SECRET_NAME}_secret.txt"
         done
-        sudo cat CHEFADMIN_secret.txt
+        cat CHEFADMIN_secret.txt
 
 
     # - name: Chef org user pem files upload
