@@ -28,7 +28,7 @@ jobs:
         echo $SEC
         sudo echo "SECRET=$SEC" >> $GITHUB_ENV
         sudo export SECRET="CHEFADMIN"
-        echo "${{ secrets[format('{0}', env.SECRET)] }}"
+        echo "${{ secrets[format('{0}', '$SEC')] }}"
 
 
     # - name: Chef org user pem files upload
