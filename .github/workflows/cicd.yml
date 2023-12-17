@@ -23,7 +23,7 @@ jobs:
       # env:
       #   SECRET: CHEFADMIN 
       run: |
-        echo "::set-env name=SEC::CHEFADMIN"
+        sudo echo "::set-env name=SEC::CHEFADMIN"
         SEC="CHEFADMIN"
         env
         evn.SEC
