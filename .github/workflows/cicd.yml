@@ -18,10 +18,8 @@ jobs:
       env:
         CHEFADMIN: ${{secrets.CHEFADMIN}}
       run: |
-        ls -lhrt .github
-        tree .github
-        sudo chmod 777 .github/workflows/test.sh
-        sudo bash .github/workflows/test.sh
+        ls -lhrt 
+        pwd
   
 
       
