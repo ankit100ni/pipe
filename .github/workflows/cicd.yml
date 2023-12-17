@@ -20,8 +20,7 @@ jobs:
 
     - name: Chef org user pem files upload
       run: |
-        CHEFADMIN=${{secrets.CHEFADMIN}}
-        echo $CHEFADMIN > /tmp/chefadmin.pem
+        echo ${{secrets.CHEFADMIN}} > /tmp/chefadmin.pem
         cat /tmp/chefadmin.pem
 
 
