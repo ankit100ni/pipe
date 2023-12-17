@@ -23,8 +23,7 @@ jobs:
         CHEFADMIN: ${{secrets.CHEFADMIN}}
       run: |
         echo $CHEFADMIN
-        sudo chmod 777 .github/workflows/test.sh
-        sudo bash .github/workflows/test.sh
+        echo ${{secrets[env.CHEFADMIN]}}
 
 
     # - name: Installing Workstation
