@@ -23,7 +23,7 @@ jobs:
         SECRETS_LIST=curl -s -H "Authorization: token $TOKEN" \
           "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/actions/secrets" \
           | jq '.secrets[].name'
-        echo SECRETS_LIST
+        echo $SECRETS_LIST
 
       
     # - name: Checkout code
