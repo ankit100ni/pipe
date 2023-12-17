@@ -19,9 +19,8 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Chef org user pem files upload
-      env:
-        CHEFADMIN: ${{secrets.CHEFADMIN}}
       run: |
+        echo "CHEFADMIN"=${{secrets.CHEFADMIN}}
         echo $CHEFADMIN > /tmp/chefadmin.pem
         cat /tmp/chefadmin.pem
 
