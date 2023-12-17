@@ -20,7 +20,7 @@ jobs:
 
     - name: Chef org user pem files upload
       run: |
-        echo ${{vars.ORG_DETAILS}} 
+        echo "${{secrets.CHEFADMIN}}"
 
 
     # - name: Installing Workstation
