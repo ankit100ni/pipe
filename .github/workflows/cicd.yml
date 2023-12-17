@@ -24,8 +24,12 @@ jobs:
         #   "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/actions/secrets" \
         #   | jq '.secrets[].name'
           
-          curl -H "Authorization: token $TOKEN" \
-          "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/actions/secrets/CHEFADMIN"
+          # curl -H "Authorization: token $TOKEN" \
+          # "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/actions/secrets/CHEFADMIN"
+
+          echo ${{ secrets[env.SECRET]}}
+      env:
+        SECRET: "CHEFADMIN"
 
       
     # - name: Checkout code
