@@ -14,10 +14,10 @@ jobs:
     - name: Input Validation
       run : echo "Input Validation"
 
-    # - name: Chef org user pem files upload
-    #   run: echo ${{ secrets[format(env.SECRET)] }}
-    #   env:
-    #     SECRET: "CHEFADMIN"
+    - name: Chef org user pem files upload
+      run: echo ${{ secrets[format(env.SECRET)] }}
+      env:
+        SECRET: "CHEFADMIN"
 
 
       
