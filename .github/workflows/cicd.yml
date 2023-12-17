@@ -20,10 +20,14 @@ jobs:
         REPO_NAME=pipe
         TOKEN=${{ secrets.GH_TOKEN }}
 
-        SECRETS_LIST=$(curl -s -H "Authorization: token $TOKEN" \
-          "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/actions/secrets" \
-          | jq '.secrets[].name')
-        echo $SECRETS_LIST
+        # SECRETS=$(curl -s -H "Authorization: token $TOKEN" \
+        #   "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/actions/secrets" \
+        #   | jq '.secrets[].name'
+          
+          curl -H "Authorization: token YOUR_TOKEN" \
+          "https://api.github.com/repos/OWNER/REPO/actions/secrets/CHEFADMIN"
+          )
+        echo $SECRETS
 
       
     # - name: Checkout code
