@@ -25,6 +25,7 @@ jobs:
       run: |
         sudo echo "::set-env name=SEC::CHEFADMIN"
         echo "SEC=CHEFADMIN" >> $GITHUB_ENV
+        echo "url : ${{ vars.CHEF_SERVER_URL }}"
 
         echo "${{ secrets[format('{0}', env.SEC)] }}"
 
