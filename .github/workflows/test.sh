@@ -1,4 +1,4 @@
 echo "----------------"
-echo $CHEFADMIN
+printenv CHEFADMIN
 echo "----------------"
 echo "----------------"
