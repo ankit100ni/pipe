@@ -27,7 +27,9 @@ jobs:
           # curl -H "Authorization: token $TOKEN" \
           # "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/actions/secrets/CHEFADMIN"
           SECRET="CHEFADMIN"
-          echo ${{ secrets.${SECRET} }}
+          echo ${{ secrets[format(env.SECRET)] }}
+      env:
+        SECRET: "CHEFADMIN"
 
 
       
