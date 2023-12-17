@@ -24,9 +24,9 @@ jobs:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
       run: |
         sudo echo "::set-env name=SEC::CHEFADMIN"
-        SEC="CHEFADMIN"
-        env
-        evn.SEC
+        # SEC="CHEFADMIN"
+        # env
+        # evn.SEC
         echo "${{ secrets[format('{0}', env.SEC)] }}"
 
 
