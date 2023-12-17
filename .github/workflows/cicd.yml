@@ -27,7 +27,7 @@ jobs:
         SEC="CHEFADMIN"
         echo $SEC
         echo "SECRET=$SEC" >> $GITHUB_ENV
-        echo $env.SECRET
+        echo $(env.SECRET)
         export SECRET="CHEFADMIN"
         echo "${{ secrets[format('{0}', env.SECRET)] }}"
 
