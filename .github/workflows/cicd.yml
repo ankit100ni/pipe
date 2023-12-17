@@ -18,15 +18,32 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Chef org user pem files upload
+    - name: Save Secrets to File
       run: |
-        my_secrets=("CHEFADMIN" "TESTUSER")
-        for sec in "${my_secrets[@]}"; do
-          echo "$sec"
-          echo "${{secrets.eval($sec)}}"
+        # Define an array of secret names
+        SECRET_NAMES=("SECRET_NAME_1" "SECRET_NAME_2" "SECRET_NAME_3")
+
+        # Loop through each secret name
+        for SECRET_NAME in "${SECRET_NAMES[@]}"; do
+          # Retrieve the content of the secret
+          SECRET_CONTENT="${{ secrets.${SECRET_NAME} }}"
+
+          # Save the content to a file with the secret name
+          echo "$SECRET_CONTENT" > "${SECRET_NAME}_secret.txt"
+
+          # Set more restrictive permissions on the file
+          chmod 600 "${SECRET_NAME}_secret.txt"
         done
-        a="echo '${{secrets.CHEFADMIN}}'"
-        eval "$a"
+
+    # - name: Chef org user pem files upload
+    #   run: |
+    #     my_secrets=("CHEFADMIN" "TESTUSER")
+    #     for sec in "${my_secrets[@]}"; do
+    #       echo "$sec"
+    #       echo "${{ secrets.${sec} }}"
+    #     done
+    #     a="echo '${{secrets.CHEFADMIN}}'"
+    #     eval "$a"
 
     # - name: Installing Workstation
     #   run: |
