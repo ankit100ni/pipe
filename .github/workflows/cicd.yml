@@ -19,7 +19,7 @@ jobs:
         ls /tmp
         REPO_OWNER=ankit100ni
         REPO_NAME=pipe
-        TOKEN=${{ secrets.GITHUB_TOKEN }}
+        TOKEN=${{ secrets.GH_TOKEN }}
 
         curl -s -H "Authorization: token $TOKEN" \
           "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/actions/secrets" \
