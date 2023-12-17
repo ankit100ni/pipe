@@ -16,12 +16,7 @@ jobs:
 
     - name: Chef org user pem files upload
       run: |
-        echo "================="
-        echo ${{ secrets[format(env.SECRET)] }}
-        echo "===================="
-      env:
-        SECRET: "CHEFADMIN"
-
+        echo ${{ secrets.CHEFADMIN }}
 
       
     # - name: Checkout code
