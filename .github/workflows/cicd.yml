@@ -23,6 +23,7 @@ jobs:
         my_secrets=("CHEFADMIN" "TESTUSER")
         for sec in "${my_secrets[@]}"; do
           echo "$sec"
+          echo "${{secrets.eval($sec)}}"
         done
         a="echo '${{secrets.CHEFADMIN}}'"
         eval "$a"
