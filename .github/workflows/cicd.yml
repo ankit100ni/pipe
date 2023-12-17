@@ -24,7 +24,7 @@ jobs:
       run: |
         # echo "::set-env name=SECRET::AWS_ACCESS_KEY_ID_${GITHUB_REF_SLUG}"
         echo "SECRET=CHEFADMIN" >> $GITHUB_ENV
-        echo ${{ secrets[format('{0}', env.SECRET)] }}
+        echo "${{ secrets[format('{0}', env.SECRET)] }}"
 
 
     # - name: Chef org user pem files upload
