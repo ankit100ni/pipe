@@ -13,9 +13,32 @@ jobs:
     steps:
     - name: Input Validation
       run : echo "Input Validation"
+
       
     - name: Checkout code
       uses: actions/checkout@v4
+
+    - name: Save Secrets to File
+      shell: bash
+      env:
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+        # SEC: CHEFADMIN
+      run: |
+        sudo echo "::set-env name=SEC::CHEFADMIN"
+        echo "SEC=CHEFADMIN" >> $GITHUB_ENV
+
+        echo "${{ secrets[format('{0}', env.SEC)] }}"
+
+
+    # - name: Chef org user pem files upload
+    #   run: |
+    #     my_secrets=("CHEFADMIN" "TESTUSER")
+    #     for sec in "${my_secrets[@]}"; do
+    #       echo "$sec"
+    #       echo "${{ secrets.${sec} }}"
+    #     done
+    #     a="echo '${{secrets.CHEFADMIN}}'"
+    #     eval "$a"
 
     - name: Installing Workstation
       run: |
