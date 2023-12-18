@@ -29,6 +29,15 @@ echo "$json_data" | jq -r 'to_entries[] | "\(.key) \(.value.client_name) \(.valu
   knife ssl fetch
   knife ssl check
   knife client list
-  echo " $COUNTER "
-  COUNTER=$[$COUNTER +1]
+
+  if [ -e "./Policyfile.lock.json" ]; then
+      echo "File exists. Running update Command"
+      chef update Policyfile.rb
+  else
+      echo "File does not exist. Running Command B."
+      chef install Policyfile.rb
+  fi
+    chef push dev Policyfile.lock.json
+    echo " $COUNTER "
+    COUNTER=$[$COUNTER +1]
 done
